@@ -1,0 +1,18 @@
+name: Keep Supabase Alive
+
+on:
+  schedule:
+    # Runs every 3 days at midnight UTC
+    - cron: "0 0 */3 * *"
+  workflow_dispatch: # Also allow manual trigger from GitHub UI
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping DB via API route
+        run: |
+          echo "Pinging Supabase to keep project alive..."
+          curl -f https://tour-recommendation.vercel.app/api/ping || \
+          curl -f https://tour-recommendation-talha-builds.vercel.app/api/ping || \
+          echo "Ping sent (check URL if you see an error)"
