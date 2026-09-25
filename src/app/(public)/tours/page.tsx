@@ -15,16 +15,16 @@ export default async function ToursPage() {
   const { data: tours } = await supabase.from("tours").select("*, destinations(country)").order("created_at", { ascending: false });
 
   return (
-    <div className="min-h-screen bg-slate-50 pt-32 pb-20">
+    <div className="min-h-screen bg-slate-50 pt-24 sm:pt-32 pb-20">
       <div className="container mx-auto px-4 sm:px-8 max-w-7xl">
         <div className="mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">All Tours</h1>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-4">All Tours</h1>
           <p className="text-lg text-muted-foreground max-w-2xl">
             Browse our complete catalog of unforgettable experiences.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-8">
           {tours?.map((tour) => (
             <Link key={tour.id} href={`/tours/${tour.id}`}>
               <Card className="hover:shadow-xl transition-all duration-300 group cursor-pointer overflow-hidden border-0 bg-white shadow-md h-full flex flex-col">

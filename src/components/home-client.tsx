@@ -20,7 +20,7 @@ export function HomeClient({ featuredTours }: { featuredTours: Tour[] }) {
     <main className="min-h-screen bg-background font-[family-name:var(--font-sans)]">
       
       {/* Immersive Hero Section */}
-      <section className="relative h-[90vh] min-h-[600px] flex items-center justify-center overflow-hidden">
+      <section className="relative h-[85vh] min-h-[500px] flex items-center justify-center overflow-hidden">
         {/* Background Image with Overlay */}
         <div className="absolute inset-0 z-0">
           <Image 
@@ -33,7 +33,7 @@ export function HomeClient({ featuredTours }: { featuredTours: Tour[] }) {
           <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-background"></div>
         </div>
 
-        <div className="relative z-10 container mx-auto px-4 sm:px-8 pt-20 flex flex-col items-center text-center">
+        <div className="relative z-10 container mx-auto px-4 sm:px-8 pt-16 sm:pt-20 flex flex-col items-center text-center w-full">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -43,10 +43,10 @@ export function HomeClient({ featuredTours }: { featuredTours: Tour[] }) {
             <Badge variant="secondary" className="bg-white/20 text-white hover:bg-white/30 border-none backdrop-blur-md px-4 py-1.5 text-sm mb-4">
               Premium Travel Experiences
             </Badge>
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-white drop-shadow-lg">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-white drop-shadow-lg">
               Discover Your <br/> Next Adventure
             </h1>
-            <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto drop-shadow-md">
+            <p className="text-sm sm:text-lg md:text-xl text-white/90 max-w-2xl mx-auto drop-shadow-md px-2">
               Curated tours and personalized recommendations for the modern traveler. Explore the world's most breathtaking destinations.
             </p>
           </motion.div>
@@ -56,26 +56,26 @@ export function HomeClient({ featuredTours }: { featuredTours: Tour[] }) {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-            className="w-full max-w-4xl mt-12"
+            className="w-full max-w-3xl mt-8 sm:mt-12 px-2 sm:px-0"
           >
-            <div className="bg-white/95 backdrop-blur-xl rounded-full p-2 md:p-3 flex flex-col md:flex-row gap-3 shadow-2xl shadow-black/20 border border-white/40">
-              <div className="flex-1 relative flex items-center pl-4">
+            <div className="bg-white/95 backdrop-blur-xl rounded-2xl sm:rounded-full p-3 flex flex-col sm:flex-row gap-2 shadow-2xl shadow-black/20 border border-white/40">
+              <div className="flex-1 relative flex items-center px-3 sm:pl-4">
                 <Search className="h-5 w-5 text-muted-foreground mr-3 shrink-0" />
                 <Input 
                   placeholder="Where to?" 
-                  className="border-0 bg-transparent text-lg shadow-none focus-visible:ring-0 px-0 h-12" 
+                  className="border-0 bg-transparent text-base sm:text-lg shadow-none focus-visible:ring-0 px-0 h-10 sm:h-12" 
                 />
               </div>
-              <div className="w-full md:w-48 border-t md:border-t-0 md:border-l border-border/50 pl-2">
-                <Select className="border-0 bg-transparent text-base shadow-none focus-visible:ring-0 h-12">
+              <div className="w-full sm:w-44 border-t sm:border-t-0 sm:border-l border-border/50 pt-2 sm:pt-0 sm:pl-2">
+                <Select className="border-0 bg-transparent text-sm sm:text-base shadow-none focus-visible:ring-0 h-10 sm:h-12">
                   <option value="">Any Budget</option>
                   <option value="budget">Budget Friendly</option>
                   <option value="moderate">Moderate</option>
                   <option value="luxury">Luxury</option>
                 </Select>
               </div>
-              <Link href="/tours">
-                <Button size="lg" className="h-14 rounded-full px-8 text-lg w-full md:w-auto shrink-0 shadow-lg shadow-primary/20">
+              <Link href="/tours" className="w-full sm:w-auto">
+                <Button size="lg" className="h-11 sm:h-14 rounded-xl sm:rounded-full px-6 sm:px-8 text-base sm:text-lg w-full shrink-0 shadow-lg shadow-primary/20">
                   Explore Now
                 </Button>
               </Link>
@@ -85,10 +85,10 @@ export function HomeClient({ featuredTours }: { featuredTours: Tour[] }) {
       </section>
 
       {/* Featured Destinations Section */}
-      <section className="py-24 container mx-auto px-4 sm:px-8">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-12">
+      <section className="py-12 sm:py-24 container mx-auto px-4 sm:px-8">
+        <div className="flex flex-col md:flex-row justify-between items-end mb-8 sm:mb-12">
           <div className="space-y-4 max-w-2xl">
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight">Your Next Great Adventure Awaits</h2>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight">Your Next Great Adventure Awaits</h2>
             <p className="text-lg text-muted-foreground leading-relaxed">
               We&apos;ve curated the most breathtaking experiences across the globe. Whether you&apos;re looking to scale the highest peaks, dive into crystal clear waters, or wander through ancient ruins, we have the perfect journey for you.
             </p>
@@ -100,7 +100,7 @@ export function HomeClient({ featuredTours }: { featuredTours: Tour[] }) {
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-8">
           {featuredTours.length > 0 ? (
             featuredTours.map((tour, index) => (
               <motion.div
