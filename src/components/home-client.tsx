@@ -1,9 +1,10 @@
 "use client";
 
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Select } from "@/components/ui/select";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { MapPin, Search, ArrowRight, Star } from "lucide-react";
@@ -16,6 +17,17 @@ type Tour = Database["public"]["Tables"]["tours"]["Row"] & {
 };
 
 export function HomeClient({ featuredTours }: { featuredTours: Tour[] }) {
+  const router = useRouter();
+  const [searchQuery, setSearchQuery] = useState("");
+  const [budget, setBudget] = useState("");
+
+  const handleSearch = () => {
+    const params = new URLSearchParams();
+    if (searchQuery.trim()) params.set("search", searchQuery.trim());
+    if (budget) params.set("budget", budget);
+    router.push(`/tours${params.toString() ? `?${params.toString()}` : ""}`);
+  };
+
   return (
     <main className="min-h-screen bg-background font-[family-name:var(--font-sans)]">
       
@@ -62,23 +74,32 @@ export function HomeClient({ featuredTours }: { featuredTours: Tour[] }) {
               <div className="flex-1 relative flex items-center px-3 sm:pl-4">
                 <Search className="h-5 w-5 text-muted-foreground mr-3 shrink-0" />
                 <Input 
-                  placeholder="Where to?" 
+                  placeholder="Where to? (e.g. Japan, Safari, Bali...)" 
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  onKeyDown={(e) => e.key === "Enter" && handleSearch()}
                   className="border-0 bg-transparent text-base sm:text-lg shadow-none focus-visible:ring-0 px-0 h-10 sm:h-12" 
                 />
               </div>
               <div className="w-full sm:w-44 border-t sm:border-t-0 sm:border-l border-border/50 pt-2 sm:pt-0 sm:pl-2">
-                <Select className="border-0 bg-transparent text-sm sm:text-base shadow-none focus-visible:ring-0 h-10 sm:h-12">
+                <select
+                  value={budget}
+                  onChange={(e) => setBudget(e.target.value)}
+                  className="w-full h-10 sm:h-12 bg-transparent text-sm sm:text-base focus:outline-none px-2"
+                >
                   <option value="">Any Budget</option>
-                  <option value="budget">Budget Friendly</option>
-                  <option value="moderate">Moderate</option>
-                  <option value="luxury">Luxury</option>
-                </Select>
+                  <option value="200">Under $200</option>
+                  <option value="300">Under $300</option>
+                  <option value="500">Under $500</option>
+                </select>
               </div>
-              <Link href="/tours" className="w-full sm:w-auto">
-                <Button size="lg" className="h-11 sm:h-14 rounded-xl sm:rounded-full px-6 sm:px-8 text-base sm:text-lg w-full shrink-0 shadow-lg shadow-primary/20">
-                  Explore Now
-                </Button>
-              </Link>
+              <Button
+                size="lg"
+                onClick={handleSearch}
+                className="h-11 sm:h-14 rounded-xl sm:rounded-full px-6 sm:px-8 text-base sm:text-lg w-full sm:w-auto shrink-0 shadow-lg shadow-primary/20"
+              >
+                Explore Now
+              </Button>
             </div>
           </motion.div>
         </div>

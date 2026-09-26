@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
+import { useSearchParams } from "next/navigation";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
@@ -8,6 +9,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { MapPin, Star, Search, SlidersHorizontal, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Suspense } from "react";
 
 type Tour = {
   id: string;
@@ -21,9 +23,10 @@ type Tour = {
 };
 
 export function ToursClient({ tours }: { tours: Tour[] }) {
-  const [search, setSearch] = useState("");
+  const searchParams = useSearchParams();
+  const [search, setSearch] = useState(searchParams.get("search") || "");
   const [difficulty, setDifficulty] = useState("");
-  const [maxPrice, setMaxPrice] = useState("");
+  const [maxPrice, setMaxPrice] = useState(searchParams.get("budget") || "");
 
   const filtered = useMemo(() => {
     return tours.filter((tour) => {
