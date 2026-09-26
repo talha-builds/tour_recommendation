@@ -120,7 +120,7 @@ export default async function AdminDashboard() {
                     </p>
                   </CardContent>
                   <CardFooter className="flex justify-between items-center pt-4 border-t border-border/50 shrink-0">
-                    <div className="text-lg font-bold">${tour.price}</div>
+                    <div className="text-lg font-bold">?\</div>
                   </CardFooter>
                 </Card>
               </Link>
@@ -171,7 +171,7 @@ export default async function AdminDashboard() {
                   </p>
                 </CardContent>
                 <CardFooter className="flex justify-between items-center pt-4 border-t border-border/50 shrink-0">
-                  <div className="text-lg font-bold">${tour.price}</div>
+                  <div className="text-lg font-bold">?\</div>
                 </CardFooter>
               </Card>
             </Link>

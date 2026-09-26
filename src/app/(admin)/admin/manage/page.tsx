@@ -59,7 +59,7 @@ export default async function AdminManagePage() {
                 <tr key={tour.id} className="hover:bg-slate-50/50 transition-colors">
                   <td className="p-4 font-medium">{tour.title} {tour.is_featured && <span className="ml-2 text-xs bg-yellow-100 text-yellow-800 px-2 py-0.5 rounded-full">Featured</span>}</td>
                   <td className="p-4">{tour.destinations?.name}</td>
-                  <td className="p-4">${tour.price}</td>
+                  <td className="p-4">?\</td>
                   <td className="p-4 capitalize">{tour.difficulty}</td>
                   <td className="p-4 text-right">
                     <form action={async () => {
