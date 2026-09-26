@@ -1,0 +1,10 @@
+UPDATE tours SET price = 120 WHERE title = 'Eiffel Tower Expedition';
+UPDATE tours SET price = 85 WHERE title = 'Taj Mahal Expedition';
+UPDATE tours SET price = 250 WHERE title = 'Mount Fuji Expedition';
+UPDATE tours SET price = 150 WHERE title = 'Bali Beaches Expedition';
+UPDATE tours SET price = 300 WHERE title = 'Machu Picchu Expedition';
+UPDATE tours SET price = 200 WHERE title = 'Grand Canyon Expedition';
+UPDATE tours SET price = 180 WHERE title = 'Santorini Expedition';
+UPDATE tours SET price = 220 WHERE title = 'Banff National Park Expedition';
+UPDATE tours SET price = 350 WHERE title = 'Swiss Alps Expedition';
+UPDATE tours SET price = 450 WHERE title = 'Serengeti Expedition';
