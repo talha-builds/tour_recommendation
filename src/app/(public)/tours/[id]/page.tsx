@@ -1,7 +1,7 @@
 import { createClient } from "@/lib/supabase/server";
 import { notFound } from "next/navigation";
 import Image from "next/image";
-import { MapPin, Clock, Mountain, IndianRupee, Star, Calendar } from "lucide-react";
+import { MapPin, Clock, Mountain, DollarSign, Star, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { WishlistButton } from "@/components/tours/wishlist-button";
@@ -119,9 +119,9 @@ export default async function TourDetailsPage({ params }: { params: Promise<{ id
                 <span className="font-bold text-lg capitalize">{tour.difficulty}</span>
               </div>
               <div className="flex flex-col items-center justify-center text-center p-4 bg-slate-50 rounded-2xl">
-                <IndianRupee className="h-8 w-8 text-primary mb-2" />
+                <DollarSign className="h-8 w-8 text-primary mb-2" />
                 <span className="text-sm text-muted-foreground">Price</span>
-                <span className="font-bold text-lg">₹{Number(tour.price).toLocaleString('en-IN')}</span>
+                <span className="font-bold text-lg">${tour.price}</span>
               </div>
               <div className="flex flex-col items-center justify-center text-center p-4 bg-slate-50 rounded-2xl">
                 <Calendar className="h-8 w-8 text-primary mb-2" />
@@ -147,7 +147,7 @@ export default async function TourDetailsPage({ params }: { params: Promise<{ id
           <div className="lg:w-1/3">
             <div className="sticky top-32 bg-white rounded-3xl p-8 shadow-xl border border-border/50">
               <div className="text-3xl font-bold mb-2">
-                ₹{Number(tour.price).toLocaleString('en-IN')} <span className="text-base font-normal text-muted-foreground">/ person</span>
+                ${tour.price} <span className="text-base font-normal text-muted-foreground">/ person</span>
               </div>
               <div className="flex items-center text-sm text-muted-foreground mb-8">
                 <Star className="h-4 w-4 text-yellow-500 fill-yellow-500 mr-1" />

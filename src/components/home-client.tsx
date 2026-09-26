@@ -88,9 +88,9 @@ export function HomeClient({ featuredTours }: { featuredTours: Tour[] }) {
                   className="w-full h-10 sm:h-12 bg-transparent text-sm sm:text-base focus:outline-none px-2"
                 >
                   <option value="">Any Budget</option>
-                  <option value="15000">Under ₹15,000</option>
-                  <option value="25000">Under ₹25,000</option>
-                  <option value="40000">Under ₹40,000</option>
+                  <option value="200">Under $200</option>
+                  <option value="300">Under $300</option>
+                  <option value="500">Under $500</option>
                 </select>
               </div>
               <Button
@@ -168,7 +168,7 @@ export function HomeClient({ featuredTours }: { featuredTours: Tour[] }) {
                       </p>
                     </CardContent>
                     <CardFooter className="flex justify-between items-center pt-4 border-t border-border/50 shrink-0">
-                      <div className="text-xl font-bold">₹{tour.price.toLocaleString('en-IN')} <span className="text-sm text-muted-foreground font-normal">/ person</span></div>
+                      <div className="text-xl font-bold">${tour.price} <span className="text-sm text-muted-foreground font-normal">/ person</span></div>
                     </CardFooter>
                   </Card>
                 </Link>

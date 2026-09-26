@@ -92,8 +92,8 @@ export function ToursClient({ tours }: { tours: Tour[] }) {
             </select>
           </div>
 
-          <div className="relative w-full sm:w-40">
-            <span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground text-sm">₹</span>
+          <div className="relative w-full sm:w-36">
+            <span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground text-sm">$</span>
             <Input
               type="number"
               placeholder="Max price"
@@ -179,7 +179,7 @@ export function ToursClient({ tours }: { tours: Tour[] }) {
                       </CardContent>
                       <CardFooter className="flex justify-between items-center pt-4 border-t border-border/50 shrink-0">
                         <div className="text-xl font-bold">
-                          ₹{tour.price.toLocaleString('en-IN')}{" "}
+                          ${tour.price}{" "}
                           <span className="text-sm text-muted-foreground font-normal">/ person</span>
                         </div>
                       </CardFooter>
