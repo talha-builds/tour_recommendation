@@ -23,15 +23,15 @@ export default function AdminLayout({
             <LayoutDashboard className="h-5 w-5" />
             <span>Dashboard</span>
           </Link>
-          <Link href="/admin/destinations" className="flex items-center space-x-3 px-3 py-2 rounded-lg hover:bg-muted text-muted-foreground hover:text-foreground transition-colors">
+          <Link href="/admin/manage" className="flex items-center space-x-3 px-3 py-2 rounded-lg hover:bg-muted text-muted-foreground hover:text-foreground transition-colors">
             <Map className="h-5 w-5" />
-            <span>Destinations</span>
+            <span>Manage Tours</span>
           </Link>
-          <Link href="/admin/users" className="flex items-center space-x-3 px-3 py-2 rounded-lg hover:bg-muted text-muted-foreground hover:text-foreground transition-colors">
+          <Link href="#" className="flex items-center space-x-3 px-3 py-2 rounded-lg hover:bg-muted text-muted-foreground hover:text-foreground transition-colors">
             <Users className="h-5 w-5" />
             <span>Users</span>
           </Link>
-          <Link href="/admin/settings" className="flex items-center space-x-3 px-3 py-2 rounded-lg hover:bg-muted text-muted-foreground hover:text-foreground transition-colors">
+          <Link href="/admin/preferences" className="flex items-center space-x-3 px-3 py-2 rounded-lg hover:bg-muted text-muted-foreground hover:text-foreground transition-colors">
             <Settings className="h-5 w-5" />
             <span>Settings</span>
           </Link>

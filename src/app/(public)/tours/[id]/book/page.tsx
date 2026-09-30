@@ -1,7 +1,6 @@
 import { createClient } from "@/lib/supabase/server";
 import { notFound } from "next/navigation";
-import { CheckCircle2 } from "lucide-react";
-import { BookingDashboard } from "@/components/tours/booking-dashboard";
+import { BookingFlow } from "./booking-flow";
 
 export default async function BookingItineraryPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
@@ -35,20 +34,10 @@ export default async function BookingItineraryPage({ params }: { params: Promise
   }
 
   return (
-    <main className="min-h-screen bg-slate-50 pt-24 pb-16">
-      <div className="container mx-auto px-4 max-w-7xl">
-        <div className="mb-8">
-          <div className="flex items-center gap-3 mb-2">
-            <CheckCircle2 className="h-8 w-8 text-green-500" />
-            <h1 className="text-3xl font-bold text-slate-800">Booking Confirmed!</h1>
-          </div>
-          <p className="text-muted-foreground text-lg ml-11">
-            You are officially going to {tour.destinations?.name}. Here is your dynamic travel itinerary.
-          </p>
-        </div>
-
-        <BookingDashboard destinationCoords={coords} destinationName={tour.title} />
-      </div>
-    </main>
+    <BookingFlow 
+      destinationCoords={coords} 
+      destinationName={tour.title}
+      tourName={tour.title}
+    />
   );
 }
