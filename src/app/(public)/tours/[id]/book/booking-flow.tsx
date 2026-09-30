@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { CheckCircle2, User, Phone, Mail, FileText } from "lucide-react";
+import { CheckCircle2, User, Phone, Mail, CalendarDays, Users } from "lucide-react";
 import { BookingDashboard } from "@/components/tours/booking-dashboard";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -75,9 +75,20 @@ export function BookingFlow({ destinationCoords, destinationName, tourName }: Bo
                   <Input required type="email" placeholder="Email Address" className="pl-10 h-12 rounded-xl" />
                 </div>
                 
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="relative">
+                    <CalendarDays className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+                    <Input required type="date" placeholder="Departure Date" className="pl-10 h-12 rounded-xl text-muted-foreground" />
+                  </div>
+                  <div className="relative">
+                    <CalendarDays className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+                    <Input required type="date" placeholder="Return Date" className="pl-10 h-12 rounded-xl text-muted-foreground" />
+                  </div>
+                </div>
+
                 <div className="relative">
-                  <FileText className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
-                  <Input required placeholder="Passport Number" className="pl-10 h-12 rounded-xl" />
+                  <Users className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+                  <Input required type="number" min="1" max="10" placeholder="Number of Travelers" className="pl-10 h-12 rounded-xl" />
                 </div>
               </div>
 
